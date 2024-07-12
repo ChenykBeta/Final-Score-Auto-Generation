@@ -3,7 +3,7 @@ class Graph
 	public:
 		virtual void display()=0; 
 };
-class switchUltra :public Graph
+class Forthplace :public Graph
 {
 	public:
 		void display() override{
@@ -19,7 +19,7 @@ class switchUltra :public Graph
 	}
 };
 
-class switchAir :public Graph
+class Sideplace :public Graph
 {
 	public:
 	void display() override{
@@ -33,7 +33,7 @@ class switchAir :public Graph
 	std::cout<<"\t\t\t============================================="<<std::endl;
 }
 };
-class switchPro:public Graph{
+class Secondplace:public Graph{
 	public:
 	void display() override{
 	std::cout<<"\033c";
@@ -50,7 +50,7 @@ class switchPro:public Graph{
 	std::cout<<"\t\t\t请选择:";
 }
 };
-class switchProMax:public Graph{
+class Thirdplace:public Graph{
 	public:
 	void display() override{
 	std::cout<<"\033c";
@@ -66,7 +66,7 @@ class switchProMax:public Graph{
 	std::cout<<"\t\t\t============================================="<<std::endl;
 }
 };
-class switchZH:public Graph {
+class Firstplace:public Graph {
 	public:
 	void display() override{
 	std::cout<<"\033c";
@@ -81,7 +81,8 @@ class switchZH:public Graph {
 	std::cout<<"\t\t\t============================================="<<std::endl;
 	std::cout<<"\t\t\t准备好n次实习成绩和试卷成绩（格式：考号，姓名，班级，成绩）"<< std::endl;
 	std::cout<<"\t\t\t考勤成绩（格式考号，姓名，班级，考勤扣分）均为csv文件"<<std::endl;
-	std::cout<<"\t\t\t请选择:";
+	std::cout<<"\t\t\t请选择:\n";
+	std::cout<<"\t\t\t"; 
 }
 };
 

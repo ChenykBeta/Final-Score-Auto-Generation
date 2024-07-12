@@ -22,11 +22,11 @@ class Student {
 std::vector<Student> mergedStudents;
 int n = 1;
 
-switchUltra ultra;
-switchAir air;
-switchZH zh;
-switchPro pro;
-switchProMax pm;
+Forthplace four;
+Firstplace one;
+Secondplace two;
+Thirdplace three;
+Sideplace side;
 
 
 // 函数用于读取CSV文件并返回一个学生向量
@@ -85,7 +85,7 @@ bool totalScore(const Student& a, const Student& b) {
 std::unordered_map<int, Student> studentMap;
 int Intership_score() {
 	// 使用unordered_map根据考号合并成绩
-	ultra.display();
+	four.display();
 	try {
 		std::string Address;
 		std::string input=" ";
@@ -101,7 +101,7 @@ int Intership_score() {
 					studentMap[student.ID] = student;
 				}
 			}
-			std::cout<<"\t\t\t是否继续输入"<<std::endl;
+			std::cout<<"\t\t\t是否继续输入实习成绩"<<std::endl;
 			std::cout<<"\t\t\t";
 			std::cin>>input;
 			n++;
@@ -135,7 +135,7 @@ int Intership_score() {
 		// 计算最终成绩
 		for (auto& pair : studentMap) {
 			Student& student = pair.second;
-			// 计算四次成绩的平均分
+			
 			double averageScore=0.0;
 			for(int i=1; i<n; i++) {
 				averageScore +=student.score[i];
@@ -219,7 +219,7 @@ void  ScoreTranscript() {
 	csvFile <<"考勤扣分,试卷成绩,平时成绩,最终成绩" << std::endl;
 	for (const Student& student : mergedStudents) {
 		csvFile << student.name << "," << student.ID << ",";
-		for(int i=1; i<n; i++) {
+		for(int i=1; i<=n; i++) {
 			csvFile <<student.score[i] << ",";
 		}
 		csvFile<< student.attendanceScore << "," << student.examScore << "," <<std::fixed <<std::setprecision(1)
@@ -237,7 +237,7 @@ void  ScoreTranscript() {
 }
 void Check() {
 	std::cout<<"\033c";
-	air.display();
+	side.display();
 	std::string queryInput;
 	while (true) {
 		std::cout << "\t\t\t请输入要查询的考号（输入'退出'以结束查询）：\n\t\t\t";
@@ -269,7 +269,7 @@ void drawHistogram() {
         totalScores.push_back(student.totalScore);
     }
 
-    int intervals[5] = {0}; // 5 intervals for 0-19, 20-39, 40-59, 60-79, 80-100
+    int intervals[5] = {0}; 
     for (const auto& score : totalScores) {
         int index = static_cast<int>(score / 20);
         if (index >= 5) index = 4;
@@ -282,14 +282,14 @@ void drawHistogram() {
         percentages[i] = static_cast<double>(intervals[i]) / totalStudents * 100;
     }
 
-    // Find the maximum percentage for scaling the y-axis
+  
     double maxPercentage = *std::max_element(std::begin(percentages), std::end(percentages));
   
    
-    // Output the histogram vertically with x and y axes
+   
     std::cout << "\t\t\t\t\t\t成绩分布直方图：" << std::endl;
 
-    // Print y-axis labels and histogram
+    
     for (int i = 20; i >= 0; --i) {
         double currentPercentage = i * 5;
         std::cout << std::setw(4) << currentPercentage << "% | ";
@@ -303,33 +303,30 @@ void drawHistogram() {
         std::cout << std::endl;
     }
 
-    // Print x-axis
     std::cout << "      +";
     for (int i = 0; i < 5; ++i) {
         std::cout << "------";
     }
     std::cout << std::endl;
 
-    // Print x-axis labels
     std::cout << "     0 ";
     for (int i = 1; i <= 5; ++i) {
         std::cout << std::setw(5) << i * 20 << " ";
     }
    
-  // Calculate and output max, min, and average score
+ 
   std::cout<<std::endl;
     std::cout<<std::endl;
      std::cout<<std::endl;
       std::cout<<std::endl;
     double maxScore = *std::max_element(totalScores.begin(), totalScores.end());
     double minScore = *std::min_element(totalScores.begin(), totalScores.end());
-    double averageScore = std::accumulate(totalScores.begin(), totalScores.end(), 0.0) / totalStudents;
-    
-   std::cout<<"\t------------------------"<<std::endl;
-   std::cout<<"\t|  最高分:|"<<"  "<<maxScore<<"        |"<<std::endl;
-   std::cout<<"\t|  最低分:|"<<"  "<<minScore<<"         |"<<std::endl;
-   std::cout<<"\t|  平均分:|"<<"  "<<std::setprecision(2) << averageScore<<"        |"<<std::endl;
-   std::cout<<"\t------------------------"<<std::endl;
+    double averageScore = std::accumulate(totalScores.begin(), totalScores.end(), 0.0)/totalStudents;
+   std::cout<<"\t -----------------------"<<std::endl;
+   std::cout<<"\t|  最高分:|"<<"   "<<std::fixed<<std::setprecision(1)<<maxScore<<"      |"<<std::endl;
+   std::cout<<"\t|  最低分:|"<<"   "<<std::fixed<<std::setprecision(1)<<minScore<<"       |"<<std::endl;
+   std::cout<<"\t|  平均分:|"<<"   "<<std::fixed<<std::setprecision(1)<<averageScore<<"      |"<<std::endl;
+   std::cout<<"\t -----------------------"<<std::endl;
    
   
 }

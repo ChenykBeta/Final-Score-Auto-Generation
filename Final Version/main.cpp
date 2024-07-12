@@ -1,7 +1,7 @@
 #include"Student.h" 
 
 int main() {
-	zh.display();
+	one.display();
 	int t;
 	std::cin>>t;
 	if(t==1) {
@@ -11,12 +11,12 @@ int main() {
 		exit(0);     //退出程序
 	}
 	while(true) {
-		pro.display();
+		two.display();
 		std::cin>>t;
 		if(t==1) {
 			while(true) {
 
-				pm.display();
+				three.display();
 				std::cout<<"\t\t\t请选择:";
 				int z;
 				std::cin>>z;
@@ -41,10 +41,14 @@ int main() {
         	std::string k;
         	std::cin>>k;
 	        if(k!="是") {
+	        	std::cout<<"\033c"<<std::endl<<std::endl;
+	        std::cout<<"\t\t\t再见！祝您生活愉快！"; 
 	    	break;
         	}
 		}
 		else if(t==0) {
+			std::cout<<"\033c"<<std::endl<<std::endl;
+			std::cout<<"\t\t\t再见！祝您生活愉快！"; 
 			break;
 		}
 	}
